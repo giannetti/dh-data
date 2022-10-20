@@ -3,8 +3,8 @@ title: "Digital Humanities and Data"
 author: "Francesca Giannetti"
 date: "2022-10-19"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -47,6 +47,7 @@ In her talk, "Data Trouble," Miriam Posner enumerates some of the reasons behind
 As an example of the first, Posner discusses the culturomics authors' paper, specifically the visualization on inventions and their adoption rate.
 
 ![A figure from "Quantitative Analysis of Culture..."](figs/culturomics.png){ width=70% }
+
 ### Demarcation
 
 **Demarcation**: the separation of research observations into discrete items in order to perform operations on them.
@@ -66,6 +67,7 @@ Some things lend themselves well to parameterization: word counts, canvas size, 
 Ontologies get at the way in which one sees the world. To humanists, perspective changes things, occasionally in significant ways. Take for example this runaway slave advertisement from 1752 and its current (2022) representation in the [New Jersey Slavery Records](https://njslavery.org). 
 
 ![A runaway slave ad compared to its representation in NJ Slavery](figs/ontology.png)
+
 ### Replicability
 
 **Replicability**: the benefit of published data is reuse and replicability, but *cui bono* in the humanities?
@@ -80,13 +82,14 @@ We have a fairly limited vocabulary for referencing gaps or absences in our data
 
 ### Deracination
 
-*Deracination*: creating data involves capturing some aspects of our sources and disregarding others. In other words, some context is inevitably lost.
+**Deracination**: creating data involves capturing some aspects of our sources and disregarding others. In other words, some context is inevitably lost.
 
 It's not possible to represent every feature of a given source. But fortunately, that is okay. No humanist would assert that a digitized book is the same as the print book used as its source. They both accomplish different purposes, and have different affordances and drawbacks.
 
 To take another example, from the [correspondence edition of the War Service Bureau Records](https://rutgersdh.github.io/warservicebureau/), the following figure shows the editorial pipeline from manuscript letter, to TEI XML encoding of the same letter, to its HTML representation on the website. The web edition makes no effort to capture many of the material aspects of the source. It focuses on content and editorial annotation instead, on the assumption that readers can always refer back to the digitized or print manuscript. 
 
 ![A letter from the Rutgers College War Service Bureau Records and its representations as TEI-XML and HTML](figs/deracination.png)
+
 ## Data Modeling
 
 A few words on data modeling in the humanities... or in any discipline, really. 
