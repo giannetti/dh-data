@@ -35,7 +35,7 @@ To start, if you're using your own computer, run the section of setup code above
 
 ## Humanities Data Tensions
 
-In her talk, "Data Trouble," Posner enumerates some of the reasons behind the data negativity in some humanities circles. It goes beyond a fondness for close reading and an aversion to positivism. Those reasons fall under the sign of categorization. E.g.:
+In her talk, "Data Trouble," Miriam Posner enumerates some of the reasons behind the data negativity in some humanities circles. It goes beyond a fondness for close reading and an aversion to positivism. Those reasons fall under the sign of categorization. E.g.:
 
 1. demarcation
 2. parameterization
@@ -47,34 +47,59 @@ In her talk, "Data Trouble," Posner enumerates some of the reasons behind the da
 As an example of the first, Posner discusses the culturomics authors' paper, specifically the visualization on inventions and their adoption rate.
 
 ![A figure from "Quantitative Analysis of Culture..."](figs/culturomics.png){ width=70% }
+### Demarcation
 
-*Demarcation* -- the separation of research observations into discrete items in order to perform operations on them.
+**Demarcation**: the separation of research observations into discrete items in order to perform operations on them.
 
-In the above figure, the authors see proof that more recent cohorts of inventions were adopted more rapidly than previous cohorts. The visualization suggests that each invention cohort appeared like a bolt out of the blue. Humanists, on the other hand, tend to see inventions emerging from constellations of forces, integrating previous technologies in the succeeding technology. Not separate, in other words. And yet, separation is a necessary precursor to data manipulation and analysis. The computer can't do much with an undifferentiated mass of information. 
+In the figure above, the authors see proof that more recent cohorts of inventions were adopted more rapidly than previous cohorts. The visualization suggests that each invention cohort appeared like a bolt out of the blue. Humanists, on the other hand, tend to see inventions emerging from constellations of forces, integrating previous technologies in the succeeding technology. Not separate, in other words. And yet, separation is a necessary precondition for data manipulation and analysis. The computer can't do much with an undifferentiated mass of information. 
 
-*Parameterization* -- a standard scale of measurement to facilitate comparisons
+### Parameterization
 
-Some things lend themselves well to parameterization: word counts, canvas size, the length of a song, or the shape of a pot. But within cultural artifacts, many features that are legible to human perception are difficult to parameterize, e.g. tone of voice, posture, facial expression. And some things that seem simple, e.g. how far it is from London to Edinburgh, change considerably depending on the historical period, mode of transport, class status, gender, weather, and so on. 
+**Parameterization**: a standard scale of measurement to facilitate comparisons.
 
-*Ontological stability* -- how we organize entities to make a data model
+Some things lend themselves well to parameterization: word counts, canvas size, the length of a song, or the shape of a pot. But within cultural artifacts, many features that are legible to human perception are difficult to parameterize, e.g. tone of voice, posture, facial expression. And some things that seem simple to measure, e.g. how far it is from London to Edinburgh, change considerably depending on the historical period, mode of transport, class status, gender, weather, and so on. 
 
-Ontologies get at the way in which one sees the world. To humanists, perspective changes things. 
+### Ontological Stability
 
-![A runaway slave ad compared to its representation in the NJ Slavery database](figs/ontology.png)
+**Ontological stability**: how we organize entities to make a data model.
 
-*replicability* -- the benefit of all well-structured/described data is reuse and replicability, but is that a thing in the humanities?
+Ontologies get at the way in which one sees the world. To humanists, perspective changes things, occasionally in significant ways. Take for example this runaway slave advertisement from 1752 and its current (2022) representation in the [New Jersey Slavery Records](https://njslavery.org). 
 
-As Posner suggests, the interpretation of the data IS the work, and it would be foreign to most humanists to suggest that any other humanist reach the same conclusions. 
+![A runaway slave ad compared to its representation in NJ Slavery](figs/ontology.png)
+### Replicability
 
-*boundedness* -- all historical records are partial, therefore no historical dataset is representative?
+**Replicability**: the benefit of published data is reuse and replicability, but *cui bono* in the humanities?
+
+As Posner suggests, the interpretation of the data IS the work in the humanities, and it would be foreign to most humanists to suggest that any other scholar reach the same conclusions as they do. With that said, publishing well-structured and well described humanities datasets *does* facilitate building on previous data-centric work. That does count for a lot.
+
+### Boundedness
+
+**Boundedness**: all historical records are partial, therefore no historical dataset is representative?
 
 We have a fairly limited vocabulary for referencing gaps or absences in our data, but there are some strategies.
 
-*deracination* -- when creating data, some context is inevitably removed
+### Deracination
 
-It's not possible to capture every aspect of a given source. But fortunately, that is okay. No humanist would assert that a digitized book is the same as the print book used as its source. They both accomplish different purposes, and have different affordances and drawbacks.
+*Deracination*: creating data involves capturing some aspects of our sources and disregarding others. In other words, some context is inevitably lost.
+
+It's not possible to represent every feature of a given source. But fortunately, that is okay. No humanist would assert that a digitized book is the same as the print book used as its source. They both accomplish different purposes, and have different affordances and drawbacks.
+
+To take another example, from the [correspondence edition of the War Service Bureau Records](https://rutgersdh.github.io/warservicebureau/), the following figure shows the editorial pipeline from manuscript letter, to TEI XML encoding of the same letter, to its HTML representation on the website. The web edition makes no effort to capture many of the material aspects of the source. It focuses on content and editorial annotation instead, on the assumption that readers can always refer back to the digitized or print manuscript. 
 
 ![A letter from the Rutgers College War Service Bureau Records and its representations as TEI-XML and HTML](figs/deracination.png)
+## Data Modeling
+
+A few words on data modeling in the humanities... or in any discipline, really. 
+
+This is a translation of Herbert Stachowiak's _Allgemeine Modelltheorie_ (General Model Theory) published in 1973, and borrowed from [modelpractice](https://modelpractice.wordpress.com/2012/07/04/model-stachowiak/). 
+
+### Fundamental Model Properties
+
+1. **Mapping**: Models are always models of something, i.e. mappings from, representations of natural or artificial originals, that can be models themselves.
+2. **Reduction**: Models in general capture not all attributes of the original represented by them, but rather only those seeming relevant to their model creators and/or model users.
+3. **Pragmatism**: Models are not uniquely assigned to their originals per se. They fulfill their replacement function a) for particular – cognitive and/or acting, model using subjects, b) within particular time intervals and c) restricted to particular mental or actual operations.
+
+In other words, a lot of the tensions identified by Posner are good and normal insofar as we're aware of our individual contexts as researchers, and we document what we're trying to represent, and what we've determined to be out of scope. 
 
 ## Data from Archival Sources
 
@@ -167,62 +192,20 @@ write.csv(ledger, "ledger.csv")
 ledger <- read.csv("ledger.csv")
 ```
 
-# Using Digitized Texts
-
-There are a number sources of digitized texts online. The most reliable of these is [Project Gutenberg](gutenberg.com), which contains transcriptions of some 60,000 books, fictional and nonfictional.
-
-The Gutenberg page for any given book, will list several format options: the most amiable is the "Plain Text UTF-8" format. Copying and pasting this into a plain notepad .txt document (not a Word .docx document) is all that's necessary to begin working with this text as data. Like a .csv file, this is the simplest and smallest format for text data, which makes it the most reliable to work with. And again, any text file in, say, Microsoft Word can be turned into a .txt format in the "Save as" menu.
-
-Even more easily, you might scrape this text directly off the web and into an object in your computer's memory with `readLines`. Here is *The Theory of the Leisure Class* (1899) by economist and sociologist Thorstein Veblen.
-```{r}
-book <- readLines("http://www.gutenberg.org/cache/epub/833/pg833.txt")
-```
-
-Type "book" into your console and click enter. If you scroll up to the top, you'll see a bunch of stuff that isn't part of the book proper: website metadata, text metadata, an introduction. We'll want to trim that off.
-
-If you went to the webpage we got it from, you could see that the book begins with the line "THE THEORY OF THE LEISURE CLASS" and ends with the line "use and the need of direct and forcible speech." If we search the book object for elements containing those exact character strings, we'll find the exact position for the start and the end of our desired text. The `grep` function does this. I've included a `^` and a `$` because `grep` is otherwise inclusive and will return any longer character strings that happen to include our desired string as well: these serve as metacharacters specifying a hard start and a hard end.
-```{r}
-start_line <- grep("^THE THEORY OF THE LEISURE CLASS$", book)
-end_line <- grep("^use and the need of direct and forcible speech.$", book)
-
-book <- book[start_line:end_line]
-```
-
-What exactly is the proper unit of data here? That depends on the question at hand. We could leave it in lines, as it currently stands, which would tell us about the format (in this case the Gutenberg format, but in the next example it would tell us about the print format). So let's remove the line breaks by collapsing all the elements of our book vector together into one big character string with `paste`.
-```{r}
-book <- paste(book, collapse=" ")
-```
-
-We could break this book down to individual characters. There probably isn't much we can say about characters like "e" or "f", but we might learn something from the distribution of "?" or "!" characters. Most likely, though, the most useful unit of data is the word. So we'll split up the book string with `strsplit`, with a break every time there's a non-letter character. Of course, there isn't a character on the keyboard for "non-letter character." To express this regular yet inexact pattern, we'll need what's called a *regular expression*. `\\w` denotes any single letter; `\\W` denotes any single non-letter; `+` denotes one or more of whatever precedes it. Thus we get:
-```{r eval=FALSE}
-book_words <- unlist(strsplit(book, "\\W+"))
-
-book_words
-```
-
-We could just as easily split our text up into sentences. The only thing to change would be the regular expression, which now includes all the characters that signal the end of a sentence as triggers for splitting the character string. A period needs to be designated as `\\.` because it is a regular expression metacharacter (namely, any character whatsoever). Before doing so, it would be necessary to substitute out periods that don't end sentences. This might understandably get tricky, and will probably require lots of circular data work. "Mr." and "Mrs." are obvious places to start. Where else?
-
 ## Exercises
 
 *Exercise #1: NJ recommendations*
 
-Let's take a few minutes as a group to add our personal recommendations of places to visit in New Jersey. These can be restaurants, places of historical interest, hiking trails, bodies of water, museums, etc., well-known or otherwise. Go to <https://docs.google.com/spreadsheets/d/1P8xWaqCpGYJJj5cRCvPRTA9HQKEjrBnWBKRSunmWLlA/edit?usp=sharing> and add yours. Notice that I've made some assumptions about the useful categories for our data.
+Let's take a few minutes as a group to add our personal recommendations of places to visit in New Jersey. These can be restaurants, places of historical interest, hiking trails, bodies of water, museums, boutiques, etc., well-known or otherwise. Go to <https://docs.google.com/spreadsheets/d/1P8xWaqCpGYJJj5cRCvPRTA9HQKEjrBnWBKRSunmWLlA/edit?usp=sharing> and add yours. Notice that I've made some assumptions about the useful categories for our data.
 
 Next, we'll load our data into R in order to visualize it as a map. An important intermediate step to visualization is geocoding, or adding latitude and longitude coordinates to our `city` column.  
-
-I'm making the assumption that a map will help us to browse/query our data. Here, we place markers on a map and add popups with some data from our Google sheet. 
-
-*Questions:*
-
-1. In what way is a map useful, or not? What is lost and gained with this representation of our data? 
-2. Can you imagine alternative ways of visualizing our data that would tell a different story or suggest another interpretation?
 
 ```{r njrecs, include=FALSE, eval=FALSE}
 
 # assign the URL to our Google sheet to a variable
 google_sheet_csv <- 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTglbQwJls-8Wis1cpTX829gjY7qTAKOLU3o0KoLNyOahX8zfj3kkEecEkRNYknP_96i-Ktp-XrZQN2/pub?gid=0&single=true&output=csv'
 
-# create a dataframe for the contents of the sheet
+# create a dataframe with the contents of the sheet
 nj_recommendations <- read_csv(google_sheet_csv, col_types='ffcfccccfc', skip = 1) 
 
 # load libraries
@@ -237,15 +220,27 @@ njrecs_geocoded <- geocode(nj_recommendations$city, output = "latlona", source =
 # do a little bit of fiddling to add the latlon pairs to our original dataframe
 njrecs_merged <- merge(nj_recommendations, njrecs_geocoded, by.x = 0, by.y = 0)
 
+```
+
+I'm making an assumption that a map will help us to browse/query our data. Here, we place markers on a map and add popups with some data from our Google sheet. 
+
+*Questions:*
+
+1. In what way is a map useful, or not? What is lost and gained with this representation of our data? 
+2. Can you imagine alternative ways of visualizing our data that would tell a different story or suggest another interpretation?
+
+```{r map, include=FALSE, eval=FALSE}
+
 # create popups with info about the locations
 popup <- paste("From: ", 
-                       njrecs_merged$name, "<br>",
-                     "Of: ",
-                    njrecs_merged$residence, "<br>",
-                     "Description: ",
-                    njrecs_merged$description, "<br>",
-                     "Type: ",
-                    njrecs_merged$type)
+               njrecs_merged$name, "of",
+               njrecs_merged$residence, "<br>",
+               "Place:",
+               njrecs_merged$place, "<br>",
+               "Description: ",
+               njrecs_merged$description, "<br>",
+               "Type: ",
+               njrecs_merged$type)
 
 # create a map!
 leaflet(njrecs_merged) %>% 
@@ -255,7 +250,6 @@ leaflet(njrecs_merged) %>%
 
 ```
 
-
 *Exercise #2: Creating a data model*
 
 What kind of data model could a scholar working with rare book auction catalogs create for their research project? What categories would this person need? Essential ones? Useful ones? Some catalogs to consider <https://www.rarebookhub.com/catalogues/>. 
@@ -263,6 +257,8 @@ What kind of data model could a scholar working with rare book auction catalogs 
 ## Sources
 
 Drucker, Johanna. 2021. _The Digital Humanities Coursebook: An Introduction to Digital Methods for Research and Scholarship_. Milton, UK: Taylor & Francis.
+
+Flanders, Julia, and Fotis Jannidis. 2019. _The Shape of Data in the Digital Humanities: Modeling Texts and Text-Based Resources_. Abingdon, UK: Routledge.
 
 Leslie, Alex. 2020. "What can be data in the humanities?" <https://github.com/azleslie/DatainHumanities>.
 
