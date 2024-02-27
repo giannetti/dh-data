@@ -8,7 +8,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+
 if (!(require(tidyverse))) {
   install.packages("tidyverse", repos = "http://cran.us.r-project.org")
 }
@@ -18,7 +18,7 @@ if (!(require(ggmap))) {
 if (!(require(leaflet))) {
   install.packages("leaflet", repos = "http://cran.us.r-project.org")
 }
-
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Abstract
@@ -217,7 +217,7 @@ library(leaflet)
 
 # geocode data
 # we need a Google Maps API key to geocode
-register_google(key = "AIzaSyBEiFUPJ8c74zp9_kNVTSK10Xwg-BdublA", write = TRUE)
+register_google(key = " ", write = TRUE)
 njrecs_geocoded <- geocode(nj_recommendations$city, output = "latlona", source = "google")
 
 # do a little bit of fiddling to add the latlon pairs to our original dataframe
