@@ -9,9 +9,6 @@ output:
 
 ```{r setup, include=FALSE}
 
-if (!(require(tidyverse))) {
-  install.packages("tidyverse", repos = "http://cran.us.r-project.org")
-}
 if (!(require(ggmap))) {
   install.packages("ggmap", repos = "http://cran.us.r-project.org")
 }
@@ -246,8 +243,8 @@ popup <- paste("From: ",
                njrecs_merged$type)
 
 # create a map!
-leaflet(njrecs_merged) %>% 
-  addProviderTiles('Stadia.OSMBright') %>%
+leaflet(njrecs_merged) |>
+  addProviderTiles('Stadia.OSMBright') |>
   addCircleMarkers(lng = ~lon, lat = ~lat, radius = 5, stroke = TRUE, color = '#d500cb',
                    popup = popup)
 
