@@ -140,7 +140,7 @@ It's still possible to separate out one variable into two, but irregularities in
 gsub("(^\\w+) \\w+$", "\\1", names)
 ```
 
-When inheriting spreadsheets from someone or somewhere else, these are two of the most common operations necessary for cleaning before analysis can begin. But there are more powerful functions that can be carried out in an instant in a programming language like R that are much trickier otherwise. Transposing a spreadsheet, flipping the rows and columns, just requires one `t` function; separating out alternating values in one column and spread across two columns can be done with `spread`.
+When inheriting spreadsheets from someone or somewhere else, these are two of the most common operations necessary for cleaning before analysis can begin. But there are more powerful functions that can be carried out in an instant in a programming language like R that are much trickier otherwise. Transposing a spreadsheet, flipping the rows and columns, just requires one `t()` function (for transpose); separating out alternating values in one column and spread across two columns can be done with `pivot_wider()`.
 
 But there's other data in our archival document too. For example, some entries aren't individual subscribers: they're other newspapers. When transcribing, we tend to focus on the features in which we are interested for our specific research purpose. But sometimes we transcribe something even when we don't know if we'll need it later. In this case, we've decided to do something with those newspaper titles. We will convert them into categorical variables to track their presence or absence. 
 ```{r}
@@ -201,7 +201,7 @@ ledger <- read.csv("ledger.csv")
 
 Let's take a few minutes as a group to add our personal recommendations of places to visit in New Jersey. These can be restaurants, places of historical interest, hiking trails, bodies of water, museums, boutiques, etc., well-known or otherwise. Go to <https://docs.google.com/spreadsheets/d/1P8xWaqCpGYJJj5cRCvPRTA9HQKEjrBnWBKRSunmWLlA/edit?usp=sharing> and add yours. Notice that I've made some assumptions about the useful categories for our data.
 
-Next, we'll load our data into R in order to visualize it as a map. An important intermediate step to visualization is geocoding, or adding latitude and longitude coordinates to our `city` column.  
+Next, we'll load our data into R in order to visualize it as a map. An important intermediate step to visualization is geocoding, or adding latitude and longitude coordinates to our `street address` column.  
 
 ```{r njrecs, include=FALSE, eval=FALSE}
 
@@ -217,7 +217,7 @@ library(leaflet)
 
 # geocode data
 # we need a Google Maps API key to geocode
-register_google(key = " ", write = TRUE)
+register_google(key = "AIzaSyBEiFUPJ8c74zp9_kNVTSK10Xwg-BdublA", write = TRUE)
 njrecs_geocoded <- geocode(nj_recommendations$city, output = "latlona", source = "google")
 
 # do a little bit of fiddling to add the latlon pairs to our original dataframe
@@ -247,15 +247,15 @@ popup <- paste("From: ",
 
 # create a map!
 leaflet(njrecs_merged) %>% 
-  addProviderTiles('CartoDB.Positron') %>%
-  addCircleMarkers(lng = ~lon, lat = ~lat, radius = 5, stroke = FALSE, 
+  addProviderTiles('Stadia.OSMBright') %>%
+  addCircleMarkers(lng = ~lon, lat = ~lat, radius = 5, stroke = TRUE, color = '#d500cb',
                    popup = popup)
 
 ```
 
 *Exercise #2: Creating a data model*
 
-What kind of data model could a scholar working with rare book auction catalogs create for their research project? What categories would this person need? Essential ones? Useful ones? Some catalogs to consider <https://www.rarebookhub.com/catalogues/>. 
+What kind of data model could a scholar working with historical maps of New Brunswick, NJ, create for their research project? What categories would this person need? Essential ones? Useful ones? Some [maps to consider in RUcore](https://rucore.libraries.rutgers.edu/search/results/?key=root&q1=%22New+Brunswick%22&q1field=mods%3AtitleInfo&q1bool=AND&q2=maps&q2field=mods%3Agenre&rtype%5B%5D=&orderby=dateasc&numresults=10&c%5B0%5D=rucore00000002054&c%5B1%5D=rucore00000002444&c%5B2%5D=Roosevelt&c%5B3%5D=rucore00000002267&c%5B4%5D=rucore00000002350&c%5B5%5D=rucore00000002142&c%5B6%5D=rucore00000002143&c%5B7%5D=rucore00000002177&c%5B8%5D=rucore00000002402&c%5B9%5D=rucore00000002337&c%5B10%5D=rucore00000002220&c%5B11%5D=rucore00000002394&c%5B12%5D=rucore00000002395&c%5B13%5D=rucore00000002244&c%5B14%5D=rucore00000002245&c%5B15%5D=SPCOLMAPS&c%5B16%5D=rucore00000002253&c%5B17%5D=rucore00000002239&c%5B18%5D=rucore00000002404&c%5B19%5D=rucore00000002436&c%5B20%5D=rucore00000002048&c%5B21%5D=rucore00000002172&c%5B22%5D=rucore00000002022&c%5B23%5D=RULGriffis&c%5B24%5D=rucore00000002432&c%5B25%5D=rucore00000002221&c%5B26%5D=rucore00000002352&c%5B27%5D=rucore00000002377&c%5B28%5D=RULIJS&c%5B29%5D=rucore00000002442&c%5B30%5D=rucore00000002421&c%5B31%5D=RULIJSJOHP&c%5B32%5D=rucore00000002112&c%5B33%5D=rucore00000002166&c%5B34%5D=rucore00000002429&c%5B35%5D=rucore00000002206&c%5B36%5D=rucore00000002380&c%5B37%5D=rucore00000002109) (click link). 
 
 ## Sources
 
