@@ -9,6 +9,9 @@ output:
 
 ```{r setup, include=FALSE}
 
+if (!(require(tidyverse))) {
+  install.packages("tidyverse", repos = "http://cran.us.r-project.org")
+}
 if (!(require(ggmap))) {
   install.packages("ggmap", repos = "http://cran.us.r-project.org")
 }
@@ -198,7 +201,7 @@ ledger <- read.csv("ledger.csv")
 
 Let's take a few minutes as a group to add our personal recommendations of places to visit in New Jersey. These can be restaurants, places of historical interest, hiking trails, bodies of water, museums, boutiques, etc., well-known or otherwise. Go to <https://docs.google.com/spreadsheets/d/1P8xWaqCpGYJJj5cRCvPRTA9HQKEjrBnWBKRSunmWLlA/edit?usp=sharing> and add yours. Notice that I've made some assumptions about the useful categories for our data.
 
-Next, we'll load our data into R in order to visualize it as a map. An important intermediate step to visualization is geocoding, or adding latitude and longitude coordinates to our `street address` column.  
+Next, we'll load our data into R in order to visualize it as a map. An important intermediate step to visualization is geocoding, or adding latitude and longitude coordinates to our `street address` column. In order to geocode, you will need to create a Google geocoding API key here: <https://developers.google.com/maps/documentation/geocoding/overview>
 
 ```{r njrecs, include=FALSE, eval=FALSE}
 
@@ -213,9 +216,9 @@ library(ggmap)
 library(leaflet)
 
 # geocode data
-# we need a Google Maps API key to geocode
+# enter a Google Maps API key to geocode
 register_google(key = " ", write = TRUE)
-njrecs_geocoded <- geocode(nj_recommendations$city, output = "latlona", source = "google")
+njrecs_geocoded <- geocode(nj_recommendations$`street address`, output = "latlona", source = "google")
 
 # do a little bit of fiddling to add the latlon pairs to our original dataframe
 njrecs_merged <- merge(nj_recommendations, njrecs_geocoded, by.x = 0, by.y = 0)
